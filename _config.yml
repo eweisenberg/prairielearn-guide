@@ -7,4 +7,6 @@ url: https://eweisenberg.github.io/prairielearn-guide
 aux_links:
   Official PrairieLearn Documentation: https://prairielearn.readthedocs.io/en/latest/
 
+enable_copy_code_button: true
+
 footer_content: "Author: Ethan Weisenberg (<a href=\"mailto:mgf6hb@virginia.edu\">mgf6hb@virginia.edu</a>)<br>Last updated: July 2025"

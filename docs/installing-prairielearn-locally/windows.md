@@ -6,14 +6,13 @@ parent: Installing PrairieLearn Locally
 
 # Installing PrairieLearn Locally on Windows
 
-
-
 1. Open PowerShell. Install Ubuntu in WSL 2 using the command `wsl --install -d Ubuntu`
 
 2. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/). If you don't have an account, create one using your UVA email.
 
-3. In Docker Desktop, go to Settings (gear icon) > Resourses > WSL integration and ensure the following options are selected:<br><br>
-![Image]({{ site.baseurl }}/assets/images/docker-wsl-enable-integration.png)
+3. In Docker Desktop, go to Settings (gear icon) > Resourses > WSL integration and ensure the following options are selected:
+
+    ![Image]({{ site.baseurl }}/assets/images/docker-wsl-enable-integration.png)
 
 4. Head over to [GitHub](https://github.com/). Go to Settings > Developer Settings > Personal access tokens > Tokens (classic). Select Generate new token > Generate new token (classic). Fill in the following options:
 - *Note*: PrairieLearn CS2100
@@ -30,10 +29,26 @@ parent: Installing PrairieLearn Locally
 
 9. After cloning the repository, we need to create another folder on the same level as `pl-virginia-cs2100`. Ensure your terminal is still located at `/home/[yourusername]` and run the command `mkdir pl-jobs`. This directory will be used to store autograder jobs. Still create this folder even if you aren't planning to write questions using an autograder.
 
-10. Run the command `docker run -it --rm -p 3000:3000 -v "$HOME/pl-virginia-cs2100:/course" -v "$HOME/pl-jobs:/jobs" -e HOST_JOBS_DIR="$HOME/pl-jobs" -v //var/run/docker.sock:/var/run/docker.sock --add-host=host.docker.internal:172.17.0.1 prairielearn/prairielearn` (it may take longer the first time).
+10. Run the command:
+```
+docker run -it --rm -p 3000:3000 -v "$HOME/pl-virginia-cs2100:/course" -v "$HOME/pl-jobs:/jobs" -e HOST_JOBS_DIR="$HOME/pl-jobs" -v //var/run/docker.sock:/var/run/docker.sock --add-host=host.docker.internal:172.17.0.1 prairielearn/prairielearn
+```
+(it may take longer the first time)
 
 11. Open your browser and go to [http://localhost:3000/](http://localhost:3000/). You should now see PrairieLearn running locally!
 
 12. Click "Load from disk" on the top right. After it is done, click "Back to previous page". You should now see CS 2100 as a course with instructor access. When you click on it, it takes you to the course homepage. From here, you'll probably be using the "Questions" tab the most.
 
 **Important:** When you are finished with your locally running PrairieLearn instance, it is important to shut it down. To do this, go back into your terminal where you launched PrairieLearn and press Ctrl+C. To launch PrairieLearn again, paste the same long command from step 10 into an Ubuntu terminal and go to [http://localhost:3000/](http://localhost:3000/).
+
+## Setting Up VS Code for development
+
+1. Install [VS Code](https://code.visualstudio.com/Download) if you do not already have it.
+
+2. Install the "WSL" extension in VS Code:
+
+    ![Image]({{ site.baseurl }}/assets/images/wsl-extension-vscode.png)
+
+3. Open Ubuntu in your terminal (if you still have it open, you don't need to relaunch it). Move into the `pl-virginia-cs2100` directory using the command `cd /home/[yourusername]/pl-virginia-cs2100/`.
+
+4. Run the command `code .` This will launch a remote VS Code window connected to your local copy of the PrairieLearn course folder. It may take longer the first time.
