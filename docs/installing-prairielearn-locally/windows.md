@@ -8,7 +8,7 @@ parent: Installing PrairieLearn Locally
 
 
 
-1. Open PowerShell. Install Ubuntu in WSL2 using the command `wsl --install -d Ubuntu`
+1. Open PowerShell. Install Ubuntu in WSL 2 using the command `wsl --install -d Ubuntu`
 
 2. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/). If you don't have an account, create one using your UVA email.
 
