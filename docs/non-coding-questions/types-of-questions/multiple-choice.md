@@ -49,3 +49,7 @@ To add a "None of the above" option, use the same rules as above except with `no
 ## Only show some of the possible answer choices
 
 Add the attribute `number-answers="x"` and replace `x` with the number of answers to be displayed. One correct answer will always be displayed, and the rest will be incorrect.
+
+<br>
+
+You can read the official PrairieLearn documentation on `<pl-multiple-choice>` [here](https://prairielearn.readthedocs.io/en/latest/elements/#pl-multiple-choice-element).

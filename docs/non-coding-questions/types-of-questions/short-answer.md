@@ -71,3 +71,7 @@ Add the attribute `ignore-case="true"` to `<pl-string-input>` to disable case se
 ## String input multiline answer
 
 Add the attribute `multiline="true"` to `<pl-string-input>` to allow the student to answer with multiple lines of text.
+
+<br>
+
+You can read the official PrairieLearn documentation on `<pl-integer-input>` [here](https://prairielearn.readthedocs.io/en/latest/elements/#pl-integer-input-element), `<pl-number-input>` [here](https://prairielearn.readthedocs.io/en/latest/elements/#pl-number-input-element), and `<pl-string-input>` [here](https://prairielearn.readthedocs.io/en/latest/elements/#pl-string-input-element).

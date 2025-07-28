@@ -41,3 +41,7 @@ Add the attribute `fixed-order="true"` to the `<pl-checkbox>` tag to make the an
 ## Limit the number of answers that can be selected
 
 Add the attribute `min-select="x"` where `x` is the minimum number of answer options that must be selected for a valid submission, and add the attribute `max-select="y"` where `y` is the maximum number of answer options that must be selected for a valid submission. If the student should select exactly a certain number of answers, use the same number for both `min-select` and `max-select`.
+
+<br>
+
+You can read the official PrairieLearn documentation on `<pl-checkbox>` [here](https://prairielearn.readthedocs.io/en/latest/elements/#pl-checkbox-element).
