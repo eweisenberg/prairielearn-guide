@@ -7,18 +7,22 @@ nav_order: 4
 
 # Linked List Diagrams
 
-To generate linked list diagrams that look neat and consistent every time, you can use GraphViz with the DOT language. Head over to [this website](https://dreampuf.github.io/GraphvizOnline/?engine=dot#digraph%20G%20%7B%0A%20%20%20%20rankdir%20%3D%20%22LR%22%3B%0A%20%20%20%20node%20%5Bshape%20%3D%20%22circle%22%5D%3B%0A%20%20%20%201%20-%3E%202%20-%3E%203%3B%0A%7D) which contains the following template in the editor pane:
+To generate linked list diagrams that look neat and consistent every time, you can use the `<pl-graph>` tag with the GraphViz DOT language. Here is a code template that you can insert into your `question.html` file:  
 
-```
+```html
+<div style="float: left;">
+<pl-graph>
 digraph G {
     rankdir = "LR";
-    node [shape = "circle"];
+    node [shape = "circle" fontname = "Arial"];
     1 -> 2 -> 3;
 }
+</pl-graph>
+</div>
 ```
 
 To edit the linked list contents, edit the line containing `1 -> 2 -> 3;` to whatever you'd like you linked list to display. The node names can be any String, but must be enclosed in quotes if it contains spaces. In between each node name should be an arrow.
 
-To export your UML class diagram, check the "Show raw output" box above the preview pane. Copy the entire SVG HTML code and paste it into your `question.html` file, and you should now see it in the question preview in PrairieLearn!
+You can change the diagram to be aligned to the center of the question panel by changing `float: left;` to `float: center;`. The purpose of the outer `<div>` tag is to allow aligning the diagram to the left.
 
 The official documentation for GraphViz can be found [here](https://graphviz.org/documentation/).
