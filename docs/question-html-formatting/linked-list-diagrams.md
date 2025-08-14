@@ -31,4 +31,4 @@ edge [dir = "both"];
 
 You can change the diagram to be aligned to the center of the question panel by changing `float: left;` to `float: center;`. The purpose of the outer `<div>` tag is to allow aligning the diagram to the left.
 
-The official documentation for GraphViz can be found [here](https://graphviz.org/documentation/).
+The official documentation for GraphViz can be found [here](https://graphviz.org/documentation/), and the offical documentation for this question element can be found [here](https://prairielearn.readthedocs.io/en/latest/elements/#pl-graph-element).
