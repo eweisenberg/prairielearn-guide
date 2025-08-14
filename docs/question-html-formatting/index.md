@@ -13,6 +13,7 @@ This section contains various guides to format questions in a consistent manner 
 - [Multiline Code Blocks]({{ site.baseurl }}{% link docs/question-html-formatting/multiline-code-blocks.md %})
 - [UML Class Diagrams]({{ site.baseurl }}{% link docs/question-html-formatting/uml-class-diagrams.md %})
 - [Linked List Diagrams]({{ site.baseurl }}{% link docs/question-html-formatting/linked-list-diagrams.md %})
+- [Tree Diagrams]({{ site.baseurl }}{% link docs/question-html-formatting/tree-diagrams.md %})
 
 
 Note that within any of these elements, if you want to render any of the following symbols, you should convert them to the following codes to not break the HTML:
