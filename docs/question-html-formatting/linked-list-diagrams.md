@@ -21,7 +21,13 @@ digraph G {
 </div>
 ```
 
-To edit the linked list contents, edit the line containing `1 -> 2 -> 3;` to whatever you'd like you linked list to display. The node names can be any String, but must be enclosed in quotes if it contains spaces. In between each node name should be an arrow.
+To edit the linked list contents, edit the line containing `1 -> 2 -> 3;` to whatever you'd like you linked list to display. The node names can be any string, but must be enclosed in quotes if they contain spaces. In between each node name should be an arrow.
+
+To make the arrows between the nodes have arrowheads on both ends (to represent a doubly linked list) add the following line below the `node` line within the `<pl-graph>`:
+
+```
+edge [dir = "both"];
+```
 
 You can change the diagram to be aligned to the center of the question panel by changing `float: left;` to `float: center;`. The purpose of the outer `<div>` tag is to allow aligning the diagram to the left.
 
