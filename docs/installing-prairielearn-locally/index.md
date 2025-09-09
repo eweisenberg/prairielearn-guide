@@ -13,5 +13,5 @@ The official PrairieLearn documentation has instructions [here](https://prairiel
 
 Select your operating system for instructions:
 
-- [Windows]({{ site.baseurl }}{% link docs/installing-prairielearn-locally/windows.md %})
-- [macOS]({{ site.baseurl }}{% link docs/installing-prairielearn-locally/macos.md %})
+- [Windows](windows.html)
+- [macOS](macos.html)
