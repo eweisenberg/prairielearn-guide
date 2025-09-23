@@ -57,11 +57,9 @@ Before you begin writing coding questions, you must have PrairieLearn installed 
     ```
     The `@DisplayName` tag should contain the test case name, formatted like normal English. If this is an example test case, the display name should start with "Example" (If there is only 1 given example, use "Example", otherwise, use "Example 1", "Example 2", etc.)
 
-    The tag containing a point value should contain "points=1" if the test case is an example, and "points=0" if a hidden test case. This is done so that only example test case results are shown while students are taking the quiz.
+    The tag containing a point value should contain `"points=x"`, where `x` is a number representing the amount of points for this test case.
 
     Ensure you create as many tests as necessary to judge the student's submitted code, including edge cases (may be only a few test cases). Edge cases should not be included in the example test cases, but make sure the edge cases are realistic (e.g. add an assumption that the input will never be `null`). Do not use dynamic randomly generated test cases, as it could cause different results for students with similar submissions.
-
-    All assertions for only **non-example** test cases should include the assertion fail message "FAIL". This is used to update the grading for hidden test case results later.
 
     Here is the `Tests.java` file for `arrayContainsDuplicate`:
 
@@ -85,55 +83,55 @@ Before you begin writing coding questions, you must have PrairieLearn installed 
         @Tag("points=1")
         void example2() {
             Solution sol = new Solution();
-            assertFalse(sol.containsDuplicate(new int[] {1, 2, 3}));
+            assertFalse(sol.containsDuplicate(new int[] {1, 2, 3}) );
         }
 
         @Test
         @DisplayName("Empty array")
-        @Tag("points=0")
+        @Tag("points=0.5")
         void emptyArray() {
             Solution sol = new Solution();
-            assertFalse(sol.containsDuplicate(new int[] {}), "FAIL");
+            assertFalse(sol.containsDuplicate(new int[] {}));
         }
 
         @Test
         @DisplayName("1 element")
-        @Tag("points=0")
+        @Tag("points=0.5")
         void oneElement() {
             Solution sol = new Solution();
-            assertFalse(sol.containsDuplicate(new int[] {1}), "FAIL");
+            assertFalse(sol.containsDuplicate(new int[] {1}));
         }
 
         @Test
         @DisplayName("All same number")
-        @Tag("points=0")
+        @Tag("points=1")
         void allSameNumber() {
             Solution sol = new Solution();
-            assertTrue(sol.containsDuplicate(new int[] {5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5}), "FAIL");
+            assertTrue(sol.containsDuplicate(new int[] {5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5}));
         }
 
         @Test
         @DisplayName("Large array, no duplicates")
-        @Tag("points=0")
+        @Tag("points=2")
         void largeArrayNoDuplicates() {
             Solution sol = new Solution();
-            assertFalse(sol.containsDuplicate(new int[] {-59, 7, -38, 52, -17, 69, -86, -25, -63, 50, -23, -29, -22, -65, 54, -2, -45, -41, 17, 43}), "FAIL");
+            assertFalse(sol.containsDuplicate(new int[] {-59, 7, -38, 52, -17, 69, -86, -25, -63, 50, -23, -29, -22, -65, 54, -2, -45, -41, 17, 43}));
         }
 
         @Test
         @DisplayName("Large array, 1 duplicate")
-        @Tag("points=0")
+        @Tag("points=2")
         void LargeArrayOneDuplicate() {
             Solution sol = new Solution();
-            assertTrue(sol.containsDuplicate(new int[] {-59, 7, -38, 52, -17, 69, -86, -25, -2, -63, 50, -23, -29, -22, -65, 54, -2, -45, -41, 17, 43}), "FAIL");
+            assertTrue(sol.containsDuplicate(new int[] {-59, 7, -38, 52, -17, 69, -86, -25, -2, -63, 50, -23, -29, -22, -65, 54, -2, -45, -41, 17, 43}));
         }
 
         @Test
         @DisplayName("Large array, many duplicates")
-        @Tag("points=0")
+        @Tag("points=2")
         void largeArrayManyDuplicates() {
             Solution sol = new Solution();
-            assertTrue(sol.containsDuplicate(new int[] {-4, -3, 4, -4, -5, 2, 4, -3, 2, 5, 2, -1, -2, -1, -5, -3, -2, 4, 0, -3}), "FAIL");
+            assertTrue(sol.containsDuplicate(new int[] {-4, -3, 4, -4, -5, 2, 4, -3, 2, 5, 2, -1, -2, -1, -5, -3, -2, 4, 0, -3}));
         }
     }
     ```
@@ -215,6 +213,8 @@ Before you begin writing coding questions, you must have PrairieLearn installed 
         <markdown>Assumptions the student can make that won't be tested in hidden test cases</markdown>
     </div>
 
+    <java-quick-reference></java-quick-reference>
+
     <pl-file-editor file-name="Solution.java" ace-mode="ace/mode/java">public class Solution {
         public returnType methodName(params) {
             // Type code here. Do not change the class or method headers.
@@ -223,7 +223,7 @@ Before you begin writing coding questions, you must have PrairieLearn installed 
     </pl-question-panel>
 
     <pl-submission-panel>
-        <example-test-results></example-test-results>
+        <pl-external-grader-results></pl-external-grader-results>
         <pl-file-preview></pl-file-preview>
     </pl-submission-panel>
     ```
@@ -257,6 +257,8 @@ Before you begin writing coding questions, you must have PrairieLearn installed 
         <markdown>`nums` will never be `null`.</markdown>
     </div>
 
+    <java-quick-reference></java-quick-reference>
+
     <pl-file-editor file-name="Solution.java" ace-mode="ace/mode/java">public class Solution {
         public boolean containsDuplicate(int[] nums) {
             // Type code here. Do not change the class or method headers.
@@ -265,7 +267,7 @@ Before you begin writing coding questions, you must have PrairieLearn installed 
     </pl-question-panel>
 
     <pl-submission-panel>
-        <example-test-results></example-test-results>
+        <pl-external-grader-results></pl-external-grader-results>
         <pl-file-preview></pl-file-preview>
     </pl-submission-panel>
     ```
