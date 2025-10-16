@@ -7,28 +7,33 @@ nav_order: 4
 
 # Linked List Diagrams
 
-To generate linked list diagrams that look neat and consistent every time, you can use the `<pl-graph>` tag with the GraphViz DOT language. Here is a code template that you can insert into your `question.html` file:  
+To generate linked list diagrams that look neat and consistent every time, you can use GraphViz with the DOT language. Head over to [this website](https://is.gd/nTPRmK) which contains the following template in the editor pane:
 
-```html
-<div style="float: left;">
-<pl-graph>
+```dot
 digraph G {
     rankdir = "LR";
     node [shape = "circle" fontname = "Arial"];
     1 -> 2 -> 3;
 }
-</pl-graph>
-</div>
 ```
 
 To edit the linked list contents, edit the line containing `1 -> 2 -> 3;` to whatever you'd like you linked list to display. The node names can be any string, but must be enclosed in quotes if they contain spaces. In between each node name should be an arrow.
 
-To make the arrows between the nodes have arrowheads on both ends (to represent a doubly linked list) add the following line below the `node` line within the `<pl-graph>`:
+To make the arrows between the nodes have arrowheads on both ends (to represent a doubly linked list) add the following line below the `node` line:
 
-```
+```dot
 edge [dir = "both"];
 ```
 
-You can change the diagram to be aligned to the center of the question panel by changing `float: left;` to `float: center;`. The purpose of the outer `<div>` tag is to allow aligning the diagram to the left.
+Export the image by changing the drop down in the viewing pane to "png" and click Download.
 
-The official documentation for GraphViz can be found [here](https://graphviz.org/documentation/), and the offical documentation for this question element can be found [here](https://prairielearn.readthedocs.io/en/latest/elements/#pl-graph-element).
+Inside the question folder, create a new folder called `clientFilesQuestion` if it does not already exist. Place the image into `clientFilesQuestion`, and insert this template into `question.html`, replacing `imagename.png` with the name of the image file and filling in the alt text:
+
+```html
+<pl-figure
+  file-name="imagename.png"
+  alt="alt text"
+></pl-figure>
+```
+
+The official documentation for GraphViz can be found [here](https://graphviz.org/documentation/), and the offical documentation for this question element can be found [here](https://prairielearn.readthedocs.io/en/latest/elements/#pl-figure-element).
