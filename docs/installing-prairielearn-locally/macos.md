@@ -33,6 +33,11 @@ docker run -it --rm -p 3000:3000 -v "$HOME/pl-virginia-cs2100:/course" -v "$HOME
 
 10. Click "Load from disk" on the top right. After it is done, click "PrairieLearn" in the top left corner. You should now see CS 2100 as a course with instructor access. When you click on it, it takes you to the course homepage. From here, you'll probably be using the "Questions" tab the most.
 
+If you are getting an error while loading from disk, you may need to update the PrairieLearn Docker image. In the Ubuntu terminal, run the command:
+```
+docker pull prairielearn/prairielearn
+```
+
 **Important:** When you are finished with your locally running PrairieLearn instance, it is important to shut it down. To do this, go back into your terminal where you launched PrairieLearn and press Ctrl+C. To launch PrairieLearn again, paste the same long command from step 8 into a terminal and go to [http://localhost:3000/](http://localhost:3000/).
 
 ## Setting Up VS Code for development
