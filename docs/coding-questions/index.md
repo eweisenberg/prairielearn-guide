@@ -136,7 +136,7 @@ Before you begin writing coding questions, you must have PrairieLearn installed 
     }
     ```
 
-6. Start up PrairieLearn locally and go to the CS 2100 "Questions" tab. Click "Add question" on the right. The title for the question should be a short description of the question, formatted in normal English (e.g. Array contains duplicate). Students will see the title of the question while taking the quiz, so it should not give away the solution. The QID for the question should be the same, or similar to the title, but in camelCase (e.g. arrayContainsDuplicate). Students will not be able to see the QID. Leave the "Start from Empty Question" option as it is. Click "Create".
+6. Start up PrairieLearn locally and go to the CS 2100 "Questions" tab. Click "Add question" on the right. The title for the question should be a short description of the question, formatted in normal English (e.g. Array contains duplicate). Students will see the title of the question while taking the quiz, so it should not give away the solution. The QID for the question should be the same, or similar to the title, but in camelCase (e.g. arrayContainsDuplicate). Students will not be able to see the QID. Under "Start from" click "Course template". From the Template drop down, select "template/coding". "Click "Create".
 
 7. Open the `pl-virginia-cs2100` folder in VS Code. 
 
@@ -144,89 +144,13 @@ Before you begin writing coding questions, you must have PrairieLearn installed 
 
     Navigate to the `questions` folder and then the subfolder with the QID of the question you just created.
 
-8. Inside this folder, create a folder called `tests`. Inside the `tests` folder, create a folder called `junit`. Inside the `junit` folder, create a file called `Tests.java`. Paste your entire `Tests.java` file from IntelliJ into the newly created `Tests.java` in VS Code. Your folder structure should look like this:
+8. Inside this folder, open the `tests` folder, and inside that, the `junit` folder. Paste your entire `Tests.java` file from IntelliJ into the `Tests.java` template file already there for you in VS Code.
 
-    ![Image]({{ site.baseurl }}/assets/images/coding-question-folder-structure.png)
+9. Open the file `server.py`. If the file that the student will edit is not called `Solution.java`, change the name of the file in lines 7 and 20 to the name of the file the student will edit.
 
-9. Open the file `info.json`. Paste the following JSON data right after "v3":
+10. If you are unallowing specific classes/methods from being used, add them to the list in line 19 of `server.py`. For example, If you want to restrict built-in sorting methods from being used, line 19 should read: `for unallowed in ["Collections.sort", "Arrays.sort"]:`. This only checks using a simple string contains, but you are welcome to use regex or more advanced parsing techniques.
 
-    ```
-    ,
-    "gradingMethod": "External",
-    "externalGradingOptions": { "enabled": true, "image": "prairielearn/grader-java", "timeout": 20 },
-    "tags": ["coding"],
-    "singleVariant": true
-    ```
-
-    You can edit the "timeout" parameter (max seconds the autograder will run for before stopping) if you think your question's autograder may take more than 20 seconds per submission (20 seconds should be fine for most, if not all, questions)
-
-    Your `info.json` file should look something like this now (uuid, title, and topic will be different):
-
-    ```json
-    {
-        "uuid": "36290743-9bfa-4e1c-bb42-4f8bad8537ff",
-        "title": "Array contains duplicate",
-        "topic": "Arrays",
-        "type": "v3",
-        "gradingMethod": "External",
-        "externalGradingOptions": { "enabled": true, "image": "prairielearn/grader-java", "timeout": 20 },
-        "tags": ["coding"],
-        "singleVariant": true
-    }
-    ```
-
-10. Open the file `server.py` and paste the following code:
-
-    ```py
-    def generate(data):
-        data["params"]["_grader"] = {
-            "type": "java",
-            "workingDirectory": "tests",
-            "compile": {
-                "command": "javac",
-                "args": ["-cp", ".:junit/*", "../student_code/Solution.java", "junit/Tests.java"]
-            },
-            "execute": {
-                "command": "java",
-                "args": ["-cp", ".:junit/*", "org.junit.runner.JUnitCore", "Tests",]
-            }
-        }
-    ```
-
-    If the file that the student will edit is not called `Solution.java`, change the name of the file in line 7 to the name of the file the student will edit.
-
-11. Open the file `question.html` and paste the following template.
-
-    ```html
-    <pl-question-panel>
-    <markdown>Question instructions</markdown>
-
-    <p style="font-weight: bold;">Example 1:</p>
-    <div style="margin-left: 20px;"> 
-        <markdown>Input: `param = value`</markdown>
-        <markdown>Output: `output`</markdown>
-        <markdown>Explanation: Why the input produced that output</markdown>
-    </div>
-
-    <p style="font-weight: bold;">You may assume:</p>
-    <div style="margin-left: 20px;">
-        <markdown>Assumptions the student can make that won't be tested in hidden test cases</markdown>
-    </div>
-
-    <java-quick-reference></java-quick-reference>
-
-    <pl-file-editor file-name="Solution.java" ace-mode="ace/mode/java">public class Solution {
-        public returnType methodName(params) {
-            // Type code here. Do not change the class or method headers.
-        }
-    }</pl-file-editor>
-    </pl-question-panel>
-
-    <pl-submission-panel>
-        <pl-external-grader-results></pl-external-grader-results>
-        <pl-file-preview></pl-file-preview>
-    </pl-submission-panel>
-    ```
+11. Open the file `question.html`.
 
     This html file is what is shown to the students when they are taking the quiz. See the [question.html Formatting]({{ site.baseurl }}{% link docs/question-html-formatting/index.md %}) page for how to use Markdown and properly use this template to format the question.
 
@@ -272,8 +196,8 @@ Before you begin writing coding questions, you must have PrairieLearn installed 
     </pl-submission-panel>
     ```
 
-12. If you do not have any additional Java classes required for this question (e.g. a `Node` class for a linked list question), then you can skip this step. To add additional Java classes, create a folder called `libs` inside the `tests` folder of this question (such that it is on the same level as the `junit` folder. Go back into IntelliJ and go into the `out/production/ProjectName` folder and find the corresponding .class file of the class that needs to be included but not edited. Open that .class file in your file explorer and copy it into the newly created `libs` folder. Repeat this with all .class files needed. Do not copy over `Tests.class`, `Solution.class`, or the name of the file the student will edit. Note that the students won't be able to see the implementation of these files, so you should display the contents of the file or a UML class diagram inside `question.html` (see [question.html Formatting]({{ site.baseurl }}{% link docs/question-html-formatting/index.md %})).
+12. If you do not have any additional Java classes required for this question (e.g. a `Node` class for a linked list question), then you can skip this step. To add additional Java classes, open the `libs` folder inside the `tests` folder of this question. Go back into IntelliJ and go into the `out/production/ProjectName` folder and find the corresponding .class file of the class that needs to be included but not edited. Open that .class file in your file explorer and copy it into the newly created `libs` folder. Repeat this with all .class files needed. Do not copy over `Tests.class`, `Solution.class`, or the name of the file the student will edit. Note that the students won't be able to see the implementation of these files, so you should display the contents of the file or a UML class diagram inside `question.html` (see [question.html Formatting]({{ site.baseurl }}{% link docs/question-html-formatting/index.md %})).
 
-13. To preview your file, go into the "Questions" tab in your locally hosted PrairieLearn site, and find the question you just wrote. Ensure it is formatted correctly, and try the "Save & Grade" button to ensure the autograder works properly. It should only show the results of the example test cases.
+13. To preview your file, go into the "Questions" tab in your locally hosted PrairieLearn site, and find the question you just wrote. Ensure it is formatted correctly, and try the "Save & Grade" button to ensure the autograder works properly.
 
-14. Once you are satisfied with the question, be sure to delete the solution from `question.html`. In the locally hosted PrairieLearn site, go to the question settings and update the topic and tags to match the question and click "Save". Then, commit and push your changes. On the online PrairieLearn site, click the Sync tab on the left (rotating arrows) and click "Pull from remote git repository". Now, your questions should be synced to the remote repository and available on the online PrairieLearn course site!
+14. Once you are satisfied with the question, be sure to delete the solution from `question.html` if it is present in the starter code. In the locally hosted PrairieLearn site, go to the question settings and update the topic and tags to match the question and click "Save". Then, commit and push your changes. On the online PrairieLearn site, click the Sync tab on the left (rotating arrows) and click "Pull from remote git repository". Now, your questions should be synced to the remote repository and available on the online PrairieLearn course site!
