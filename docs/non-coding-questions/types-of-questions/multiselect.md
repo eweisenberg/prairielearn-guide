@@ -12,7 +12,7 @@ Multiselect (checkbox) questions provide a list of answer choice options where m
 Here is a general template you can use for creating a multiselect question, and what this code is displayed as:
 
 ```html
-<pl-checkbox answers-name="ans" hide-letter-keys="true" number-answers="4" min-correct="1" max-correct="4" partial-credit="true" partial-credit-method="EDC">
+<pl-checkbox answers-name="ans" hide-letter-keys="true" number-answers="4" min-correct="1" max-correct="4" partial-credit="each-answer">
     <pl-answer correct="true"><markdown>Option 1</markdown></pl-answer>
     <pl-answer correct="true"><markdown>Option 2</markdown></pl-answer>
     <pl-answer correct="true"><markdown>Option 3</markdown></pl-answer>
@@ -36,7 +36,7 @@ Each `<pl-answer>` may have `correct="true"`, and there should be multiple answe
 
 ## Set the order of the answer choices to appear
 
-Add the attribute `fixed-order="true"` to the `<pl-checkbox>` tag to make the answer options appear in the order they are in the source `question.html` file. This is not recommended if you list all the correct answers first and all the incorrect answers afterwards in `question.html`.
+Add the attribute `order="fixed"` to the `<pl-checkbox>` tag to make the answer options appear in the order they are in the source `question.html` file. This is not recommended if you list all the correct answers first and all the incorrect answers afterwards in `question.html`.
 
 ## Limit the number of answers that can be selected
 
