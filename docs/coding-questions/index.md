@@ -7,7 +7,7 @@ has_toc: false
 
 # Coding Questions
 
-Before you begin writing coding questions, you must have PrairieLearn installed locally ([instructions here]({{ site.baseurl }}{% link docs/installing-prairielearn-locally/index.md %})). The guide for this section will run through the development process of a coding question already implemented, `arrayContainsDuplicate`, which you can find by that QID on PrairieLearn, or by that folder name inside `pl-virginia-cs2100/questions`. All steps and code used to write this question will be shown on this guide, along with blank templates you can use to create new questions (the overall process is the same for all coding questions). Follow the below steps in order:
+Before you begin writing coding questions, you must have PrairieLearn installed locally ([instructions here](../installing-prairielearn-locally/index.html). The guide for this section will run through the development process of a coding question already implemented, `arrayContainsDuplicate`, which you can find by that QID on PrairieLearn, or by that folder name inside `pl-virginia-cs2100/questions`. All steps and code used to write this question will be shown on this guide, along with blank templates you can use to create new questions (the overall process is the same for all coding questions). Follow the below steps in order:
 
 1. In IntelliJ, create a blank project you will use to develop a solution to the question and JUnit test cases. You can reuse the same IntelliJ project to write multiple questions (delete the contents of each file and start over).
 
@@ -152,7 +152,7 @@ Before you begin writing coding questions, you must have PrairieLearn installed 
 
 11. Open the file `question.html`.
 
-    This html file is what is shown to the students when they are taking the quiz. See the [question.html Formatting]({{ site.baseurl }}{% link docs/question-html-formatting/index.md %}) page for how to use Markdown and properly use this template to format the question.
+    This html file is what is shown to the students when they are taking the quiz. See the [question.html Formatting](../question-html-formatting/index.html) page for how to use Markdown and properly use this template to format the question.
 
     Include all example test cases in `question.html` and copy that portion of the template multiple times if there are multiple examples. The text inside the `pl-file-editor` tag is the starter code for the question. Replace it with your solution for testing, and then delete your solution from `question.html` before committing and pushing. If the submitted file is not called `Solution.java`, be sure to edit the `file-name` parameter in the `pl-file-editor` tag to match the name of the submitted file.
 
@@ -196,7 +196,7 @@ Before you begin writing coding questions, you must have PrairieLearn installed 
     </pl-submission-panel>
     ```
 
-12. If you do not have any additional Java classes required for this question (e.g. a `Node` class for a linked list question), then you can skip this step. To add additional Java classes, open the `libs` folder inside the `tests` folder of this question. Go back into IntelliJ and go into the `out/production/ProjectName` folder and find the corresponding .class file of the class that needs to be included but not edited. Open that .class file in your file explorer and copy it into the newly created `libs` folder. Repeat this with all .class files needed. Do not copy over `Tests.class`, `Solution.class`, or the name of the file the student will edit. Note that the students won't be able to see the implementation of these files, so you should display the contents of the file or a UML class diagram inside `question.html` (see [question.html Formatting]({{ site.baseurl }}{% link docs/question-html-formatting/index.md %})).
+12. If you do not have any additional Java classes required for this question (e.g. a `Node` class for a linked list question), then you can skip this step. To add additional Java classes, open the `libs` folder inside the `tests` folder of this question. Go back into IntelliJ and go into the `out/production/ProjectName` folder and find the corresponding .class file of the class that needs to be included but not edited. Open that .class file in your file explorer and copy it into the newly created `libs` folder. Repeat this with all .class files needed. Do not copy over `Tests.class`, `Solution.class`, or the name of the file the student will edit. Note that the students won't be able to see the implementation of these files, so you should display the contents of the file or a UML class diagram inside `question.html` (see [question.html Formatting](../question-html-formatting/index.html)).
 
 13. To preview your file, go into the "Questions" tab in your locally hosted PrairieLearn site, and find the question you just wrote. Ensure it is formatted correctly, and try the "Save & Grade" button to ensure the autograder works properly.
 
