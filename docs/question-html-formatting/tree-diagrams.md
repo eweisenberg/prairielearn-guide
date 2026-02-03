@@ -14,7 +14,7 @@ Open `tree_visualizer.ipynb` and run the first large cell with code. Scroll down
 Inside the question folder, create a new folder called `clientFilesQuestion` if it does not already exist. Place the image into `clientFilesQuestion`, and insert this template into `question.html`, replacing `imagename.png` with the name of the image file:
 
 ```html
-<pl-figure file-name="imagename.png" inline="true">
+<pl-figure file-name="imagename.png" inline="true"></pl-figure>
 ```
 
 JupyterLite saves your code modifications in the browser cache. If you accidentally break the code or want to revert to the original, go into your browser settings and clear the site data for `eweisenberg.github.io`.

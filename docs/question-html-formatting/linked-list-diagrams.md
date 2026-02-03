@@ -30,7 +30,7 @@ Export the image by changing the drop down in the viewing pane to "png" and clic
 Inside the question folder, create a new folder called `clientFilesQuestion` if it does not already exist. Place the image into `clientFilesQuestion`, and insert this template into `question.html`, replacing `imagename.png` with the name of the image file:
 
 ```html
-<pl-figure file-name="imagename.png" inline="true">
+<pl-figure file-name="imagename.png" inline="true"></pl-figure>
 ```
 
 The official documentation for GraphViz can be found [here](https://graphviz.org/documentation/), and the offical documentation for this question element can be found [here](https://prairielearn.readthedocs.io/en/latest/elements/#pl-figure-element).
